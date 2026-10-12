@@ -1,5 +1,9 @@
 name: Build
 
+# 外部表情库须与主程序用完全相同的 rustc 版本编译，否则运行时会崩溃
+# 当前对齐 MemeCrafters/meme-generator-rs 最新 release (v0.2.3) 的构建 rustc 1.93.1
+# 背景: https://github.com/MemeCrafters/meme-generator-rs/issues/50
+
 on:
   push:
     branches:
@@ -34,7 +38,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v5
-      - uses: dtolnay/rust-toolchain@stable
+      - uses: dtolnay/rust-toolchain@1.93.1
       - uses: swatinem/rust-cache@v2
 
       - name: Rustup add target
@@ -67,7 +71,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v5
-      - uses: dtolnay/rust-toolchain@stable
+      - uses: dtolnay/rust-toolchain@1.93.1
       - uses: swatinem/rust-cache@v2
 
       - name: Rustup add target
@@ -95,7 +99,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v5
-      - uses: dtolnay/rust-toolchain@stable
+      - uses: dtolnay/rust-toolchain@1.93.1
       - uses: swatinem/rust-cache@v2
 
       - name: Rustup add target
